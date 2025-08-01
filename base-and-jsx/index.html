@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Base of React</title>
+        <!-- React -->
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <!-- Babel -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <div>
+
+    </div>
+    <!-- <div id="like_button_container"></div> -->
+    <div id="root"></div>
+
+    <!-- React Sample component without JSX -->
+    <!-- <script src="like_button.js"></script> -->
+
+
+    <!-- React component with JSX -->
+    <script type="text/babel">
+
+        // Simple element
+        const element = <button>Elemetn Button</button>;
+
+        // Functional Component
+        function Header(){
+            const user = 'toto';
+            return (
+                <div className="header">
+                    <h1>UVBF</h1>
+                    <p>Bienvenue {user} sur le site</p>    
+                </div>
+            );
+        }
+
+        // Class Component
+        class HelloWorld extends React.Component {
+            render() {
+                return (<p>HelloWorld,  I'm a class component</p>);
+            }
+        }
+
+        // Functional Component
+        function HelloWorld2() {
+            return (<p>HelloWorld,  I'm a fonctionnal component</p>);
+        }
+        
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        root.render(
+            <div>
+                <Header></Header> 
+                <HelloWorld />
+                <HelloWorld2 />
+            </div>
+        );
+    </script>
+</body>
+</html>
