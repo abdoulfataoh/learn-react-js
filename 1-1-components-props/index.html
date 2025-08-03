@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Base of React</title>
+        <!-- React -->
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <!-- Babel -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <!-- CSS -->
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    </head>
+<body>
+    <div>
+
+    </div>
+    <!-- <div id="like_button_container"></div> -->
+    <div id="root"></div>
+
+    <!-- React Sample component without JSX -->
+    <!-- <script src="like_button.js"></script> -->
+
+
+    <!-- React component with JSX -->
+    <script type="text/babel">
+
+        // Simple element
+        const element = <button>Elemetn Button</button>;
+
+        function HelloUser(props) {
+            return(
+                <span>Salut, {props.username}</span>
+            )
+        }
+
+        function Article(props){
+            return (
+                <div className="h-50 w-50 border-2">
+                    <img className="h-40 w-full" src={props.url} />
+                    <span>
+                        {props.name}
+                    </span>
+                </div>
+            )
+        }
+
+        function Article2({name, url}){
+            return (
+                <div className="h-50 w-50 border-2">
+                    <img className="h-40 w-full" src={url} />
+                    <span>
+                        {name}
+                    </span>
+                </div>
+            )
+        }
+
+        // Functional Component
+        function Footer(){
+            return (
+                <div className="text-white bg-black h-16 flex items-center p-2">
+                    Footer
+                </div>
+            );
+        }
+
+        function Header(){
+            return (
+                <div className="bg-yellow-300 flex items-center p-2">
+                    <h1 className="font-semibold text-xl">UVBF</h1>
+                    <ul className="ml-auto flex gap-2 [&>li]:border-2 [&>li]:p-2 ">
+                        <li>Home</li>
+                        <li>Contact</li>
+                        <li>Blog</li>
+                    </ul>
+                </div>
+            );
+        }
+
+        function TextBigAndBold(props){
+            return(
+                <span className="font-bold text-2xl">
+                    {props.children}
+                </span>
+            )
+        }
+
+        function Nav({children}){
+            return(
+                <ul className="flex gap-4 [&>li]:border-1 [&>li]:bg-red-100">
+                    {children}
+                </ul>
+            )
+        }
+
+
+        function App(){
+
+            return (
+                <div className="h-screen flex flex-col justify-between">
+                <Header />
+                <TextBigAndBold>
+                    <p>
+                        Boutique
+
+                    </p>
+                    <span>
+                        Hllo
+                    </span>
+                </TextBigAndBold>
+
+                <Article2 name="Tomate" url="https://www.gemuese.ch/media/3mhahqbt/tomate_rund_010919.png"/>
+                
+                <Nav>
+                    <li>Prix</li>
+                    <li>Partenaires</li>
+                </Nav>
+
+                <Footer />
+            </div>);
+        
+        }
+
+    
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+
+        root.render(<App />);
+    </script>
+</body>
+</html>
